@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+  PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+  "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<!--逆向工程配置文件 -->
+<generatorConfiguration>
+
+  <!-- targetRuntime：设置自定义生成的版本
+  			MyBatis3Simple：简单版，没有条件的增删改查
+  			MyBatis3：复杂版，有条件的增删改查
+   -->
+  <context id="DB2Tables" targetRuntime="MyBatis3Simple">
+   
+    <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+        connectionURL="jdbc:mysql:///kd_cs"
+        userId="root"
+        password="wzz">
+    </jdbcConnection>
+
+    <!-- 配置POJO的生成策略 -->
+    <javaModelGenerator targetPackage="cn.wzz.bean" targetProject=".\src\main\java">
+      <property name="enableSubPackages" value="true" />
+      <property name="trimStrings" value="true" />
+    </javaModelGenerator>
+
+	<!-- 配置Mapper映射文件的生成策略 -->
+    <sqlMapGenerator targetPackage="cn.wzz.mapper"  targetProject=".\src\main\java">
+      <property name="enableSubPackages" value="true" />
+    </sqlMapGenerator>
+
+	<!-- 配置Mapper接口的生成策略 -->
+    <javaClientGenerator type="XMLMAPPER" targetPackage="cn.wzz.mapper"  targetProject=".\src\main\java">
+      <property name="enableSubPackages" value="true" />
+    </javaClientGenerator>
+
+	<!-- 根据表名逆向分析生成的类 -->
+<!--     
+    <table tableName="sys_organization" domainObjectName="Organization" ></table>
+    <table tableName="sys_position" domainObjectName="Position" ></table>
+	<table tableName="employee_info" domainObjectName="Employee" ></table>
+    <table tableName="entrust" domainObjectName="Entrust" ></table>
+
+    <table tableName="sys_role_resource_relation" domainObjectName="Sys_role_resource_relation" ></table>
+    <table tableName="sys_user_role_relation" domainObjectName="Sys_user_role_relation" ></table>
+   
+   
+    <table tableName="case_batch" domainObjectName="CaseBatch" ></table>
+    <table tableName="case_info" domainObjectName="CaseInfo" ></table>
+    <table tableName="case_paid" domainObjectName="CasePaid" ></table>
+ --> 
+ 	<table tableName="sys_resource" domainObjectName="Resource" ></table>
+    <table tableName="sys_dictionary" domainObjectName="Dictionary" ></table>
+    <table tableName="sys_role" domainObjectName="Role" ></table>
+    <table tableName="area" domainObjectName="Area" ></table>
+    <table tableName="template" domainObjectName="Template" ></table>
+
+	
+    <table tableName="phone_record" domainObjectName="PhoneRecord" ></table>
+    <table tableName="visit_record" domainObjectName="VisitRecord" ></table>
+    <table tableName="case_apply" domainObjectName="CaseApply" ></table>
+    <table tableName="case_linkman" domainObjectName="CaseLinkman" ></table>
+    <table tableName="address" domainObjectName="Address" ></table>
+	
+  </context>
+</generatorConfiguration>

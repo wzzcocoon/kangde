@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+	<properties resource="dbConfig.properties"></properties>
+
+	<!-- 2.settings：用来配置MyBatis中的一些设置 -->
+	<settings>
+		<!-- name：指定要配置的属性的名字 value：指定设置的属性值 -->
+		<!-- 开启驼峰命名法，可以将数据库中的下划线映射为驼峰命名 -->
+		<setting name="mapUnderscoreToCamelCase" value="true" />
+	</settings>
+
+	<environments default="development">
+		<environment id="development">
+			<transactionManager type="JDBC" />
+			<dataSource type="POOLED">
+				<property name="driver" value="${driverClassName}" />
+				<property name="url" value="${url}" />
+				<property name="username" value="${jdbc.username}" />
+				<property name="password" value="${jdbc.password}" />
+			</dataSource>
+		</environment>
+	</environments>
+
+	<!-- 映射文件的位置！！！ -->
+	<mappers>
+		<package name="cn.wzz.mapper" />
+	</mappers>
+
+</configuration>
